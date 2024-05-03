@@ -9,6 +9,7 @@ import {
   Users,
   ChevronRight,
 } from "lucide-react";
+import { useWindowWidth } from "@react-hook/window-size";
 import { Button } from "./ui/button";
 
 const SideNavbar = () => {
@@ -16,19 +17,24 @@ const SideNavbar = () => {
   const toggolebar = () => {
     setIscollapsed(!isCollapsed);
   };
+
+  const onlyWidth = useWindowWidth();
+  const mobileWidth = onlyWidth < 768;
   return (
     <div className="relative min-w-[80px] border-r px-3 pb-10 pt-24">
-      <div className="absolute right-[-20px] top-7">
-        <Button
-          onClick={toggolebar}
-          className="rounded-full p-2"
-          variant="secondary"
-        >
-          <ChevronRight />
-        </Button>
-      </div>
+      {!mobileWidth && (
+        <div className="absolute right-[-20px] top-7">
+          <Button
+            onClick={toggolebar}
+            className="rounded-full p-2"
+            variant="secondary"
+          >
+            <ChevronRight />
+          </Button>
+        </div>
+      )}
       <Nav
-        isCollapsed={isCollapsed}
+        isCollapsed={mobileWidth ? true : isCollapsed}
         links={[
           {
             title: "Dashboard",
