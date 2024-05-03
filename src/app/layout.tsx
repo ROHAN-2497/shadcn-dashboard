@@ -18,12 +18,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen w-full bg-white text-black flex",inter.className, {"debug-screens" : process.env.NODE_ENV === "development"})}>
+      <body
+        className={cn(
+          "min-h-screen w-full bg-white text-black flex",
+          inter.className,
+          { "debug-screens": process.env.NODE_ENV === "development" }
+        )}
+      >
         {/* sidebar */}
         {/* <p className="border">SideBar</p> */}
-        <SideNavbar/>
+        <SideNavbar />
         {/* MainPage */}
-    <div className="p-8 w-full">{children}</div></body>
+        <div className="p-8 w-full">{children}</div>
+      </body>
     </html>
   );
 }
