@@ -77,7 +77,7 @@ const Home = () => {
           <p className="p-4 font-semibold">Overview</p>
           <BarChart />
         </CardContent>
-        <CardContent>
+        <CardContent className="flex justify-between gap-4">
           <section>
             <p>Recent Sales</p>
             <p className="text-sm text-gray-400">
