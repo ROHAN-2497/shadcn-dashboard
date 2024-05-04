@@ -1,5 +1,7 @@
+import BarChart from "@/components/BarChart";
 import Card, { CardContent, CardProps } from "@/components/Card";
 import PageTitle from "@/components/PageTitle";
+import SalesCard, { SalesProps } from "@/components/SalesCard";
 import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
 const cardData: CardProps[] = [
   {
@@ -27,6 +29,33 @@ const cardData: CardProps[] = [
     icon: Activity,
   },
 ];
+const uesrSalesData: SalesProps[] = [
+  {
+    name: "Olivia Martin",
+    email: "olivia.martin@email.com",
+    saleAmount: "+$1,999.00",
+  },
+  {
+    name: "Jackson Lee",
+    email: "isabella.nguyen@email.com",
+    saleAmount: "+$1,999.00",
+  },
+  {
+    name: "Isabella Nguyen",
+    email: "isabella.nguyen@email.com",
+    saleAmount: "+$39.00",
+  },
+  {
+    name: "William Kim",
+    email: "will@email.com",
+    saleAmount: "+$299.00",
+  },
+  {
+    name: "Sofia Davis",
+    email: "sofia.davis@email.com",
+    saleAmount: "+$39.00",
+  },
+];
 
 const Home = () => {
   return (
@@ -46,6 +75,24 @@ const Home = () => {
       <section className="grid grid-cols-1 gap-4 transition-all lg:grid-cols-2">
         <CardContent>
           <p className="p-4 font-semibold">Overview</p>
+          <BarChart />
+        </CardContent>
+        <CardContent>
+          <section>
+            <p>Recent Sales</p>
+            <p className="text-sm text-gray-400">
+              You made 265 sales this month.
+            </p>
+          </section>
+
+          {uesrSalesData.map((data, i) => (
+            <SalesCard
+              key={i}
+              email={data.email}
+              name={data.name}
+              saleAmount={data.saleAmount}
+            />
+          ))}
         </CardContent>
       </section>
     </div>
