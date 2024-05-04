@@ -4,7 +4,6 @@ const Home = () => {
   return (
     <div>
       <PageTitle title="DashBoard" />
-      DashBoard
     </div>
   );
 };
